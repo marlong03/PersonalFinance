@@ -1,6 +1,6 @@
 Instalación y Configuración
 
--- Descargar proyecto de repositorio
+- Descargar proyecto de repositorio
 
 FRONTEND - ANGULAR
 - Ingresar al directorio (financepersonal)
@@ -22,4 +22,11 @@ BACKEND - JAVA SPRINGBOOT
 - Ingresar al directorio back/project/project/src/main/java/com/appfinance/project
 - Ingresar al archivo ProjectApplication.java
 - Dar click en boton RUN 
-- Ya estará desplegado nuestra api springboot 
+- Ya estará desplegado nuestra api springboot
+
+  ![image](https://github.com/user-attachments/assets/82b52fe6-02de-42e5-9b78-58acb1a821a4)
+![image](https://github.com/user-attachments/assets/a8405efe-5534-40d6-b0c0-dcd1a11bcc4d)
+![image](https://github.com/user-attachments/assets/d9880cc3-c8b7-47f7-98d5-dc181bc53693)
+
+
+
