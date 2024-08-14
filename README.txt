@@ -1,6 +1,6 @@
 Instalación y Configuración
 
-- Descargar proyecto de repositorio
+-- Descargar proyecto de repositorio
 
 FRONTEND - ANGULAR
 - Ingresar al directorio (financepersonal)
