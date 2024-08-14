@@ -1,0 +1,11 @@
+<section class="p-4 text-center">
+    <div class="d-flex justify-content-center">
+        <app-chart-torte-component (dataTotals)="getTotals($event)" ></app-chart-torte-component>
+    </div>
+    <div class="d-flex justify-content-center m-3"> 
+         <p-button label="Nueva Transacción" (click)="redirectUrl('/transactions/new')"/>
+    </div>
+    <h3 class="pb-2 text-primary border-bottom border-4 ">Balance: {{transactionsTotals.total| currency:'COP'}}</h3>
+    <h5 class="pb-2 text-success ">Total ingresos: {{transactionsTotals.incomes| currency:'COP'}}</h5>
+    <h5 class="pb-2 text-danger">Total gastos: {{transactionsTotals.expenses| currency:'COP'}}</h5>
+</section>

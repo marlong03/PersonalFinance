@@ -1,0 +1,59 @@
+<section>
+
+  <div class="d-flex justify-content-end mt-4 mx-4">
+    <p-button label="Volver" type="button" severity="secondary" (click)="backPage()"  />
+  </div>
+
+  <div class="d-flex justify-content-around mt-4 flex-wrap">
+    <div class="graphic-torte mb-4">
+      <app-chart-torte-component></app-chart-torte-component>
+    </div>
+
+    <div class=" px-4">
+      <p-table
+        #dt1
+        [value]="transactions"
+        [paginator]="true"
+        [rows]="4"
+        dataKey="id"
+        [globalFilterFields]="['type', 'category', 'amount', 'date']"
+        selectionMode="single" 
+        [(selection)]="selectedTransactions"
+        (onRowSelect)="onRowSelect($event)"
+        styleClass="p-datatable-striped" 
+        responsiveLayout="stack" 
+      >
+      <ng-template pTemplate="caption">
+        <div class="d-flex justify-content-end">
+          <input type="text" pInputText placeholder="Buscar..." [(ngModel)]="searchValue" (input)="dt1.filterGlobal(searchValue, 'contains')" />
+        </div>
+      </ng-template>
+
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="type" style="width:20%">Tipo <p-sortIcon field="type" /></th>
+            <th pSortableColumn="category" style="width:20%">Categoría <p-sortIcon field="category" /></th>
+            <th pSortableColumn="amount" style="width:20%">Monto <p-sortIcon field="amount" /></th>
+            <th pSortableColumn="date" style="width:20%">Fecha <p-sortIcon field="date" /></th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-transaction>
+          <tr [pSelectableRow]="transaction">
+            @if(transaction.type == "Income"){
+              <td><p-tag value={{transaction.type}} severity="success"  /></td>
+            }@else if(transaction.type == "Expense"){
+              <td><p-tag value={{transaction.type}} severity="danger"  /></td>
+            }
+            <td>{{ transaction.category }}</td>
+            <td>{{ transaction.amount| currency:'COP' }}</td>
+            <td>{{ transaction.date }}</td>
+          </tr>
+        </ng-template>
+
+      </p-table>
+
+    </div>
+  </div>
+
+</section>

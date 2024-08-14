@@ -1,0 +1,67 @@
+<section class="d-flex justify-content-center align-items-center flex-column">
+  
+  <div class="col-8 d-flex justify-content-between align-items-center">
+    <div>
+      <h2 class="border-bottom border-3 my-4 pb-2">Nueva Transacción</h2>
+    </div>
+    <div>
+      <p-button label="Volver" type="button" severity="secondary" (click)="backPage()"  />
+    </div>
+  </div>
+
+    <form class="col-8" (ngSubmit)="onSubmit()" #transactionForm="ngForm">
+
+      <div class="form-row d-flex my-2">
+        <div class="col-sm">
+          <label for="category">Categoría*</label>
+          <input type="text" minlength="1" #category="ngModel" class="form-control" placeholder="Categoría" [(ngModel)]="transaction.category" name="category" required>
+          <div class="text-danger">
+            @if(category.invalid ){
+              <small >Categoría invalida</small>
+            }
+          </div>
+        </div>
+        <div class="col-sm">
+          <label for="amount">Monto*</label>
+          <input type="number"  #amount="ngModel" class="form-control ms-1" placeholder="$ Monto" [(ngModel)]="transaction.amount" name="amount" required min="1" step="100" >
+          <div class="text-danger">
+            @if(amount.invalid){
+              <small >Monto invalido</small>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row d-flex my-2">
+        <div class="col">
+          <label for="type">Tipo*</label>
+          <select class="form-control" [(ngModel)]="transaction.type" #type="ngModel" name="type" required>
+            <option value="" disabled selected>Seleccionar Tipo</option>
+            <option value="Income">Income</option>
+            <option value="Expense">Expense</option>
+          </select>
+          <div class="text-danger">
+            @if(type.invalid){
+              <small >Tipo invalido</small>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row d-flex my-2">
+        <div class="col">
+          <label for="description">Descripción</label>
+          <textarea class="form-control" placeholder="Descripción" [(ngModel)]="transaction.description" name="description" maxlength="150"></textarea>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between mb-4">
+        <div>
+          <p-button label="Eliminar transacción" type="button" severity="danger" (click)="deleteTransaction()"  />
+        </div>
+        <div>
+          <p-button label="Nueva Transacción" type="submit" [disabled]="transactionForm.invalid" />
+        </div>
+      </div>
+
+    </form>
+</section>
